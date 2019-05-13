@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+    home
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+    <div class="card">
+      <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" class="btn btn-success">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+  </div>
+</div>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" >
+{% if messages %}
+    {% for message in messages %}
+      swal({
+      title: "{{ message }}",
+      icon: "success",
+      className: "red-bg",
+      button: "OK",
+    });
+     {% endfor %}
+{% endif %}
+</script>
+
+
+{% endblock %}
+<!--body end-->
+
+
